@@ -1,0 +1,33 @@
+ALTER TABLE tokimon
+ADD CHECK (fly > -1 AND fly < 101),
+ADD CHECK (fight > -1 AND fight < 101),
+ADD CHECK (fire > -1 AND fire < 101),
+ADD CHECK (water > -1 AND water < 101),
+ADD CHECK (earth > -1 AND earth< 101),
+ADD CHECK (telepathy > -1 AND telepathy < 101),
+ADD CHECK (grass > -1 AND grass < 101),
+ADD CHECK (normal > -1 AND normal < 101),
+ADD CHECK (poison > -1 AND poison < 101),
+ADD CHECK (rock > -1 AND rock < 101),
+ADD CHECK (bug > -1 AND bug < 101),
+ADD CHECK (dark > -1 AND dark < 101),
+ADD CHECK (dragon > -1 AND dragon < 101),
+ADD CHECK (ice > -1 AND ice < 101);
+
+
+ALTER TABLE tokimon
+ALTER COLUMN fly SET DEFAULT 0,
+ALTER COLUMN fight SET DEFAULT 0,
+ALTER COLUMN fire SET DEFAULT 0,
+ALTER COLUMN water SET DEFAULT 0,
+ALTER COLUMN  earth SET DEFAULT 0,
+ALTER COLUMN telepathy SET DEFAULT 0,
+ALTER COLUMN grass SET DEFAULT 0,
+ALTER COLUMN normal SET DEFAULT 0,
+ALTER COLUMN poison SET DEFAULT 0,
+ALTER COLUMN rock SET DEFAULT 0,
+ALTER COLUMN bug SET DEFAULT 0,
+ALTER COLUMN dark SET DEFAULT 0,
+ALTER COLUMN dragon SET DEFAULT 0,
+ALTER COLUMN ice SET DEFAULT 0;
+ALTER COLUMN electric SET DEFAULT 0;

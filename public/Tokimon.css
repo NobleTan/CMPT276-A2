@@ -1,0 +1,87 @@
+.button{
+    border: 6px solid #a55eea;
+    background: none;
+    padding: 10px 24px;   
+    font-size: 22px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    color: black;
+    font-weight: bold;
+  }
+.button1{
+    border: 2px solid #a55eea;
+    background: none;
+    padding: 5px 12px;   
+    font-size: 15px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    color: black;
+    font-weight: bold;
+  }
+.button1::before,.button::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #a55eea;
+    z-index: -1;
+    transition: 0.8s;
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+.button1::before,.button:hover{
+    color: #fff;
+}
+.button1:hover::before,.button:hover::before{
+    height: 180%;
+}
+
+
+body{
+    background-image: linear-gradient(90deg, #b488e0,#fc81d3,#9a68cc);
+}
+
+.container{
+    text-align: center;
+}
+.containers{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+    font-family: "montserrat";
+    text-shadow: 3px 3px #a55eea;
+}
+
+form.hide {
+    display: none;
+}
+table, #table1{
+    border-spacing: 5%;
+    text-align: left;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 22px;
+    font-family: "montserrat";
+    margin-right: auto;
+    margin-left: auto;
+}
+#input{
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#newTokimonForm{
+    text-align: center;
+}

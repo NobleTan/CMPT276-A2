@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="TokimonFront.js"></script>
+        <link rel="stylesheet" href="Tokimon.css" />
+        <title>Tokimon</title>
+    </head>
+    <body>
+        <h1>Tokimon</h1>
+        <h2>
+            <div class="container">
+                <button class="button" onclick="showForm('newTokimonForm');">Add New Tokimons</button>
+                <button class="button" onclick="showForm('changeTokimonForm');">Change attributes</button>
+                <button class="button" onclick="showForm('deleteTokimonForm');">Delete Tokimons</button>
+                <button class="button" onclick="showForm('getTokimonForm');">Display Tokimons</button>
+                <button class="button" onClick="javascript:window.location.href='/tokimon/get'">All Tokimons</button>
+            </div>
+        </h2>
+        <form type="submit" action="/tokimon/new" method="POST" id="newTokimonForm" class="hide">
+            <div class ="containers">
+            <table id="table1">
+                <tbody id="newTokimonTable">
+                    <tr>
+                        <th>Trainer's name:</th>
+                        <td><input type="text" name="trainer" required/></td>   
+                    </tr>                
+                    <tr>
+                        <th>Tokimon's name:</th>
+                        <td> <input type="text" name="tokimon" required/></td>
+                    </tr>
+                    <tr>
+                        <th>Weight:</th>
+                        <td><input type="text" name="weight" oninput="checkNum(event);" data-old="" required/></td>
+                    </tr>
+                    <tr>
+                        <th>Height:</th>
+                        <td><input type="text" name="height" oninput="checkNum(event);" data-old="" required/></td>   
+                    </tr>
+                    <tr>
+                        <th>Level:</th>
+                        <td><input type="number" name="level" required/></td>   
+                    </tr>
+                    <tr>
+                        <th>Evolution:</th>
+                        <td>
+                            <select class= "button1" id="evolution" name="evolution" required>
+                                <option hidden disabled selected value>Pick Evolution</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Legendary:</th>
+                        <td><input type="checkbox" name="legendary" id="legendary" ></td>
+                    </tr>
+                    <tr>
+                        <th>Abilities:</th>
+                    </tr>
+                    <tr class="skills" id="abilityRow0">
+                        <td>
+                            <select class= "button1" id="ability0" name="ability0" data-i="0" oninput="updateList(event)" required>
+                                <option hidden disabled selected value>Pick Ability</option>
+                                <option value="fly">fly</option>
+                                <option value="fight">fight</option>
+                                <option value="fire">fire</option>
+                                <option value="water">water</option>
+                                <option value="electric">electric</option>
+                                <option value="earth">earth</option>
+                                <option value="grass">grass</option>
+                                <option value="normal">normal</option>
+                                <option value="poison">posion</option>
+                                <option value="telepathy">telepathy</option>
+                                <option value="rock">rock</option>
+                                <option value="bug">bug</option>
+                                <option value="dark">dark</option>
+                                <option value="dragon">dragon</option>
+                                <option value="ice">ice</option>
+                            </select>
+                        </td>
+                        <td><input type="number" oninput="inRange(event)" id="abilityScore0" name="abilityScore0" required/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="number" style="display:none" name="total" id="totalInput" />
+        </div>
+            <button type="button" class ="button1" id="button" onclick="add()">Add more abilities</button>
+            <h2 id="warning"></h2>
+            <button type="submit" class ="button1" id="submit" onclick="computeTotal()">Add Tokimon to database</button>
+        </form>
+
+        <form type="submit" action="/tokimon/change" method="POST" id="changeTokimonForm" class="hide">
+            <div id="input">
+                <p>Empty fields will not be changed</p>
+                <p>Tokimon's Name:<input type="text" name="tokimon" required/></p>
+                
+                <p>Trainer's Name:<input type="text" name="trainer"/></p>
+
+                <p>Weight: <input type="text" name="weight" oninput="checkNum(event);" data-old=""/></p>
+                
+                <p>Height: <input type="text" name="height" oninput="checkNum(event);" data-old=""/></p>
+
+                <p>Level: <input type="number" name="level"/></p>
+
+                <p>Evolution: <select class= "button1" id="evolution" name="evolution">
+                        <option hidden disabled selected value>Pick Evolution</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select></p>
+                
+                <p>Legendary: <input type="checkbox" name="legendary" id="legendary" ></p>
+
+                <p>fly: <input type="text" name="fly"/></p>
+                <p>fight: <input type="text" name="fight"/></p>
+                <p>fire: <input type="text" name="fire"/></p>
+                <p>water: <input type="text" name="water"/></p>
+                <p>electric: <input type="text" name="electric"/></p>
+                <p>earth: <input type="text" name="earth"/></p>
+                <p>grass: <input type="text" name="grass"/></p>
+                <p>normal: <input type="text" name="normal"/></p>
+                <p>posion: <input type="text" name="poison"/></p>
+                <p>telepathy: <input type="text" name="telepathy"/></p>
+                <p>rock: <input type="text" name="rock"/></p>
+                <p>bug: <input type="text" name="bug"/></p>
+                <p>dark: <input type="text" name="dark"/></p>
+                <p>dragon: <input type="text" name="dragon"/></p>
+                <p>ice: <input type="text" name="ice"/></p>
+                <button class ="button1" type="submit">Change</button>
+            </div>
+        </form>
+        <form type="submit" action="/tokimon/delete" method="POST" id="deleteTokimonForm" class="hide">
+            <div id="input">
+                <input type="text" name="name" placeholder="Search Tokimon Name" required>
+                <button class ="button1" type="submit">Delete</button>
+            </div>
+        </form>
+        <form type="submit" action="/tokimon/getTokimon" method="GET" id="getTokimonForm" class="hide">
+            <div id="input">
+                <input type="text" name="name" placeholder="Search Tokimon Name" required>
+                <button class ="button1" type="submit">Search</button>
+            </div></form>
+    </body>
+</html>

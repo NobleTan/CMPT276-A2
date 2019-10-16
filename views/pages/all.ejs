@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Tokimons</title>
+    <link rel="stylesheet" href="/Tokimon.css" />
+  </head>
+  <body>
+    <h1>List of All Tokimons</h1>
+    <table>
+        <thead>
+            <td>Name</td>
+            <td>Trainer</td>
+            <td>Weight</td>
+            <td>Height</td>
+            <td>Level</td>
+            <td>Evolution</td>
+            <td>Legendary</td>
+            <td>fly</td>
+            <td>flight</td> 
+            <td>fire</td>
+            <td>water</td>
+            <td>electric</td>
+            <td>earth</td>
+            <td>grass</td>
+            <td>normal</td> 
+            <td>poison</td> 
+            <td>telepathy</td> 
+            <td>rock</td> 
+            <td>bug</td>
+            <td>dark</td>
+            <td>dragon</td> 
+            <td>ice</td>
+            <td>total</td>
+        </thead>
+        <tbody>
+            <% rows.forEach((r) => { %>
+                <tr>
+                    <td><%= r.name ? r.name : '' %></td>
+                    <td><%= r.trainer ? r.trainer : '' %></td>
+                    <td><%= r.weight ? r.weight : '' %></td>
+                    <td><%= r.height ? r.height : '' %></td>
+                    <td><%= r.level ? r.level : '' %></td>
+                    <td><%= r.evolution ? r.evolution : '' %></td>
+                    <td><%= r.legendary ? r.legendary : '' %></td>
+                    <td><%= r.fly ? r.fly : '' %></td>
+                    <td><%= r.fight ? r.fight : '' %></td>
+                    <td><%= r.fire ? r.fire : '' %></td>
+                    <td><%= r.water ? r.water : '' %></td>
+                    <td><%= r.electric ? r.electric : '' %></td>
+                    <td><%= r.earth ? r.earth : '' %></td>
+                    <td><%= r.grass ? r.grass : '' %></td>
+                    <td><%= r.normal ? r.normal : '' %></td>
+                    <td><%= r.poison ? r.poison : '' %></td>
+                    <td><%= r.telepathy ? r.telepathy : '' %></td>
+                    <td><%= r.rock ? r.rock : '' %></td>
+                    <td><%= r.bug ? r.bug : '' %></td>
+                    <td><%= r.dark ? r.dark : '' %></td>
+                    <td><%= r.dragon ? r.dragon : '' %></td>
+                    <td><%= r.ice ? r.ice : '' %></td>
+                    <td><%= r.total ? r.total : '' %></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <button class="button1" onClick="javascript:window.location.href='/tokimon.html'">Return to Home Page</button>
+  </body>
+</html>
